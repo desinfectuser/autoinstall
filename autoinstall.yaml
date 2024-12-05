@@ -2,8 +2,6 @@
 autoinstall:
   version: 1
   interactive-sections:
-  - network
-  - storage
   - identity
   locale: en_GB.UTF-8 #Sprache
   keyboard: #Tastaturbelegung
@@ -13,6 +11,91 @@ autoinstall:
     update: yes
   source:
     id: ubuntu-desktop
+  storage:
+    config:
+      - type: disk
+        id: install-disk
+        ptable: gpt
+        match:
+          ssd: true
+          size: largest
+        wipe: random
+      
+      
+      - type: partition
+        id: efipart
+        device: install-disk
+        offset: 1048576
+        size: 600M
+        flag: boot
+        grub_device: true
+      
+      - type: partition
+        id: bootpart
+        device: install-disk
+        size: 1G
+        
+      - type: partition
+        id: system
+        device: install-disk
+        size: 40G
+        
+      - type: partition
+        id: swap
+        device: install-disk
+        size: 10G
+        
+      - type: partition
+        id: home
+        device: install-disk
+        size: -1
+        
+        
+      - type: format
+        id: efipart_fs
+        volume: efipart
+        fstype: fat32
+        
+      - type: format
+        id: bootpart_fs
+        volume: bootpart
+        fstype: ext4
+        
+      - type: format
+        id: system_fs
+        volume: system
+        fstype: ext4
+        
+      - type: format
+        id: swap_fs
+        volume: swap
+        fstype: swap
+        
+      - type: format
+        id: home_fs
+        volume: home
+        fstype: ext4
+        
+        
+      - type: mount
+        id: efipart-mount
+        device: efipart_fs
+        path: /boot/efi
+        
+      - type: mount
+        id: bootpart-mount
+        device: bootpart_fs
+        path: /boot
+        
+      - type: mount
+        id: system-mount
+        device: system_fs
+        path: /
+        
+      - type: mount
+        id: home-mount
+        device: home_fs
+        path: /home
   identity: #Hostname, Benutzername und Passwort
     hostname: ubuntu-desktop-matu
     username: felix
