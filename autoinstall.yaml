@@ -17,7 +17,7 @@ autoinstall:
         id: install-disk
         ptable: gpt
         match:
-          ssd: true
+         # ssd: true
           size: largest
         wipe: random
       
