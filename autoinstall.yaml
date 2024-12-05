@@ -1,8 +1,6 @@
 #cloud-config
 autoinstall:
   version: 1
-  interactive-sections:
-  - identity
   locale: en_GB.UTF-8 #Sprache
   keyboard: #Tastaturbelegung
    layout: us
@@ -100,5 +98,24 @@ autoinstall:
     hostname: ubuntu-desktop-matu
     username: felix
     password: $6$cDc4q9xz5pivJi28$g1FG/WjKkvlUwWd4n7qMr50rskuIKAfHeYy63RxcMvo.oajtAodLktx8cb1DneEX44J0wOSXM6mLpndtdBoHx. #felix
+  codecs:
+    install: true
+  drivers:
+    install: true
+  oem:
+    install: true
   updates: all
+  shutdown: reboot
+  late-commands:
+    - curtin in-target -- apt update
+    - curtin in-target -- apt fullupgrade -y
+    - curtin in-target -- apt autoremove -y
   timezone: Europe/Vienna #Zeitzone
+  user-data:
+    users:
+      - name: toor
+        passwd: '$6$j02MKnqkw.R1Psvi$CFNTn0Fw3fI4PEQZI.vruMz/rotTe8YZ3Bf/JlDnRX0VSgG0mrVC1aUrzemJ0DdRZE8OU0/jT5DoYHokLKkWA/'
+        groups: adm, lp, cdrom, sudo, dip, lpadmin, plugdev
+        shell: /bin/bash
+        lock_passwd: false
+        
