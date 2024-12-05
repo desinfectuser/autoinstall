@@ -1,0 +1,21 @@
+#cloud-config
+autoinstall:
+  version: 1
+  interactive-sections:
+  - network
+  - storage
+  - identity
+  locale: en_GB.UTF-8 #Sprache
+  keyboard: #Tastaturbelegung
+   layout: us
+   variant: ''
+  refresh-installer:
+    update: yes
+  source:
+    id: ubuntu-desktop
+  identity: #Hostname, Benutzername und Passwort
+    hostname: ubuntu-desktop-matu
+    username: felix
+    password: $6$cDc4q9xz5pivJi28$g1FG/WjKkvlUwWd4n7qMr50rskuIKAfHeYy63RxcMvo.oajtAodLktx8cb1DneEX44J0wOSXM6mLpndtdBoHx. #felix
+  updates: all
+  timezone: Europe/Vienna #Zeitzone
