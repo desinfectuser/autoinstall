@@ -16,7 +16,7 @@ autoinstall:
     - id: install-disk
       type: disk
       match:
-      size: largest
+        size: largest
       ptable: gpt
       wipe: random
       preserve: false
