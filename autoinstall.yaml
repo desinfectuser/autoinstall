@@ -1,8 +1,8 @@
 #cloud-config
 autoinstall:
   version: 1
-  interactive-sections:
-    - storage
+  #interactive-sections:
+    #- storage
   locale: en_GB.UTF-8 #Sprache
   keyboard: #Tastaturbelegung
    layout: us
@@ -12,118 +12,118 @@ autoinstall:
   source:
     id: ubuntu-desktop
   storage:
-  config:
-  - id: install-disk
-    type: disk
-    match:
+    config:
+    - id: install-disk
+      type: disk
+      match:
       size: largest
-    ptable: gpt
-    wipe: random
-    preserve: false
-    name: ''
-    grub_device: true
+      ptable: gpt
+      wipe: random
+      preserve: false
+      name: ''
+      grub_device: true
     
-  - id: efi
-    type: partition
-    device: install-disk
-    size: 600M
-    wipe: random
-    number: 1
-    preserve: false
+    - id: efi
+      type: partition
+      device: install-disk
+      size: 600M
+      wipe: random
+      number: 1
+      preserve: false
     
-  - id: boot
-    type: partition
-    device: install-disk
-    size: 1G
-    wipe: random
-    number: 2
-    preserve: false
+    - id: boot
+      type: partition
+      device: install-disk
+      size: 1G
+      wipe: random
+      number: 2
+      preserve: false
     
-  - id: system
-    type: partition
-    device: install-disk
-    size: 40G
-    wipe: random
-    number: 3
-    preserve: false
+    - id: system
+      type: partition
+      device: install-disk
+      size: 40G
+      wipe: random
+      number: 3
+      preserve: false
     
-  - id: swap
-    type: partition
-    disk: install-disk
-    size: 10G
-    wipe: random
-    flag: swap
-    number: 4
-    preserve: false
+    - id: swap
+      type: partition
+      disk: install-disk
+      size: 10G
+      wipe: random
+      flag: swap
+      number: 4
+      preserve: false
     
-  - id: home
-    type: partition
-    device: install-disk
-    size: -1
-    wipe: random
-    number: 5
-    preserve: false
-    
-    
-  - id: efi_fs
-    type: format
-    volume: efi
-    fstype: vfat
-    preserve: false
-    
-  - id: boot_fs
-    type: format
-    volume: boot
-    fstype: ext4
-    preserve: false
-    
-  - id: system_fs
-    type: format
-    volume: system
-    fstype: ext4
-    preserve: false
-    
-  - id: swap_fs
-    type: format
-    volume: swap
-    fstype: swap
-    preserve: false
-    
-  - id: home_fs
-    type: format
-    volume: home
-    fstype: ext4
-    preserve: false
+    - id: home
+      type: partition
+      device: install-disk
+      size: -1
+      wipe: random
+      number: 5
+      preserve: false
     
     
-  - id: efi-mount
-    type: mount
-    device: efi_fs
-    path: /boot/efi
+    - id: efi_fs
+      type: format
+      volume: efi
+      fstype: vfat
+      preserve: false
     
-  - id: boot-mount
-    type: mount
-    device: boot_fs
-    path: /boot
+    - id: boot_fs
+      type: format
+      volume: boot
+      fstype: ext4
+      preserve: false
     
-  - id: system-mount
-    type: mount
-    device: system_fs
-    path: /
+    - id: system_fs
+      type: format
+      volume: system
+      fstype: ext4
+      preserve: false
     
-  - id: swap-mount
-    type: mount
-    device: swap_fs
-    path: ''
+    - id: swap_fs
+      type: format
+      volume: swap
+      fstype: swap
+      preserve: false
     
-  - id: home-mount
-    type: mount
-    device: home_fs
-    path: /home
+    - id: home_fs
+      type: format
+      volume: home
+      fstype: ext4
+      preserve: false
+    
+    
+    - id: efi-mount
+      type: mount
+      device: efi_fs
+      path: /boot/efi
+    
+    - id: boot-mount
+      type: mount
+      device: boot_fs
+      path: /boot
+    
+    - id: system-mount
+      type: mount
+      device: system_fs
+      path: /
+    
+    - id: swap-mount
+      type: mount
+      device: swap_fs
+      path: ''
+    
+    - id: home-mount
+      type: mount
+      device: home_fs
+      path: /home
 
 
-swap:
-  size: 0
+  swap:
+    size: 0
   identity: #Hostname, Benutzername und Passwort
     hostname: ubuntu-desktop-matu
     username: felix
