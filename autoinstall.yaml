@@ -18,7 +18,7 @@ autoinstall:
       match:
         size: largest
       ptable: gpt
-      wipe: random
+      wipe: zero
       preserve: false
       name: ''
       grub_device: true
@@ -27,7 +27,7 @@ autoinstall:
       type: partition
       device: install-disk
       size: 600M
-      wipe: random
+      wipe: zero
       number: 1
       preserve: false
     
@@ -35,7 +35,7 @@ autoinstall:
       type: partition
       device: install-disk
       size: 1G
-      wipe: random
+      wipe: zero
       number: 2
       preserve: false
     
@@ -43,7 +43,7 @@ autoinstall:
       type: partition
       device: install-disk
       size: 40G
-      wipe: random
+      wipe: zero
       number: 3
       preserve: false
     
@@ -51,7 +51,7 @@ autoinstall:
       type: partition
       device: install-disk
       size: 10G
-      wipe: random
+      wipe: zero
       flag: swap
       number: 4
       preserve: false
@@ -60,7 +60,7 @@ autoinstall:
       type: partition
       device: install-disk
       size: -1
-      wipe: random
+      wipe: zero
       number: 5
       preserve: false
     
