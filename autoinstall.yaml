@@ -49,7 +49,7 @@ autoinstall:
     
     - id: swap
       type: partition
-      disk: install-disk
+      device: install-disk
       size: 10G
       wipe: random
       flag: swap
