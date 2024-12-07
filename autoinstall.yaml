@@ -1,10 +1,8 @@
 #cloud-config
 autoinstall:
   version: 1
-  #interactive-sections:
-    #- storage
-  locale: en_GB.UTF-8 #Sprache
-  keyboard: #Tastaturbelegung
+  locale: en_GB.UTF-8
+  keyboard:
    layout: us
    variant: ''
   refresh-installer:
@@ -124,10 +122,10 @@ autoinstall:
 
   swap:
     size: 0
-  identity: #Hostname, Benutzername und Passwort
+  identity: 
     hostname: ubuntu-desktop-matu
     username: felix
-    password: $6$cDc4q9xz5pivJi28$g1FG/WjKkvlUwWd4n7qMr50rskuIKAfHeYy63RxcMvo.oajtAodLktx8cb1DneEX44J0wOSXM6mLpndtdBoHx. #felix
+    password: $6$cDc4q9xz5pivJi28$g1FG/WjKkvlUwWd4n7qMr50rskuIKAfHeYy63RxcMvo.oajtAodLktx8cb1DneEX44J0wOSXM6mLpndtdBoHx.
   codecs:
     install: true
   drivers:
@@ -140,7 +138,7 @@ autoinstall:
     - curtin in-target -- apt update
     - curtin in-target -- apt fullupgrade -y
     - curtin in-target -- apt autoremove -y
-  timezone: Europe/Vienna #Zeitzone
+  timezone: Europe/Vienna
   user-data:
     users:
       - name: toor
