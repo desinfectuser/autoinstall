@@ -134,10 +134,6 @@ autoinstall:
     install: true
   updates: all
   shutdown: reboot
-  late-commands:
-    - curtin in-target -- apt update
-    - curtin in-target -- apt fullupgrade -y
-    - curtin in-target -- apt autoremove -y
   timezone: Europe/Vienna
   user-data:
     users:
