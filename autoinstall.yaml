@@ -25,7 +25,7 @@ autoinstall:
       type: partition
       device: install-disk
       size: 600M
-      wipe: zero
+      wipe: superblock-recursive
       number: 1
       preserve: false
     
@@ -33,7 +33,7 @@ autoinstall:
       type: partition
       device: install-disk
       size: 1G
-      wipe: zero
+      wipe: superblock-recursive
       number: 2
       preserve: false
     
@@ -41,7 +41,7 @@ autoinstall:
       type: partition
       device: install-disk
       size: 40G
-      wipe: zero
+      wipe: superblock-recursive
       number: 3
       preserve: false
     
@@ -49,7 +49,7 @@ autoinstall:
       type: partition
       device: install-disk
       size: 10G
-      wipe: zero
+      wipe: superblock-recursive
       flag: swap
       number: 4
       preserve: false
@@ -58,7 +58,7 @@ autoinstall:
       type: partition
       device: install-disk
       size: -1
-      wipe: zero
+      wipe: superblock-recursive
       number: 5
       preserve: false
     
