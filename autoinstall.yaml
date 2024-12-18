@@ -15,7 +15,7 @@ autoinstall:
       type: disk
       match:
         size: largest
-      ptable: mbr
+      ptable: gpt
       wipe: zero
       preserve: false
       name: ''
@@ -28,14 +28,15 @@ autoinstall:
       wipe: superblock-recursive
       number: 1
       preserve: false
+      flag: boot
     
-#    - id: boot
-#      type: partition
-#      device: install-disk
-#      size: 1G
-#      wipe: superblock-recursive
-#      number: 2
-#      preserve: false
+    - id: boot
+      type: partition
+      device: install-disk
+      size: 1G
+      wipe: superblock-recursive
+      number: 2
+      preserve: false
     
     - id: system
       type: partition
@@ -69,12 +70,12 @@ autoinstall:
       fstype: vfat
       preserve: false
     
- #   - id: boot_fs
- #     type: format
- #     volume: boot
- #     fstype: ext4
- #     preserve: false
-    
+    - id: boot_fs
+      type: format
+      volume: boot
+      fstype: ext4
+      preserve: false
+   
     - id: system_fs
       type: format
       volume: system
@@ -99,11 +100,11 @@ autoinstall:
       device: efi_fs
       path: /boot/efi
     
- #   - id: boot-mount
- #     type: mount
- #     device: boot_fs
- #     path: /boot
-    
+    - id: boot-mount
+      type: mount
+      device: boot_fs
+      path: /boot
+   
     - id: system-mount
       type: mount
       device: system_fs
