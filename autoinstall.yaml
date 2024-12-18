@@ -68,18 +68,21 @@ autoinstall:
       type: format
       volume: efi
       fstype: vfat
+      label: efi
       preserve: false
     
     - id: boot_fs
       type: format
       volume: boot
       fstype: ext4
+      label: boot
       preserve: false
    
     - id: system_fs
       type: format
       volume: system
       fstype: ext4
+      label: system
       preserve: false
     
     - id: swap_fs
@@ -92,6 +95,7 @@ autoinstall:
       type: format
       volume: home
       fstype: ext4
+      label: home
       preserve: false
     
     
