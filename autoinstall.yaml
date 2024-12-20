@@ -17,17 +17,17 @@ autoinstall:
       match:
         size: largest
       ptable: gpt
-      wipe: zero
+      wipe: superblock
       preserve: false
       name: ''
       grub_device: true
     
-    - id: 
+    - id: efi
       type: partition
       device: install-disk
       size: 1048576
       offset: 1048576
-      wipe: superblock-recursive
+      wipe: superblock
       number: 1
       preserve: false
       flag: bios_grub
@@ -36,7 +36,7 @@ autoinstall:
       type: partition
       device: install-disk
       size: 1G
-      wipe: superblock-recursive
+      wipe: superblock
       number: 2
       preserve: false
     
@@ -44,7 +44,7 @@ autoinstall:
       type: partition
       device: install-disk
       size: 40G
-      wipe: superblock-recursive
+      wipe: superblock
       number: 3
       preserve: false
     
@@ -52,7 +52,7 @@ autoinstall:
       type: partition
       device: install-disk
       size: 10G
-      wipe: superblock-recursive
+      wipe: superblock
       flag: swap
       number: 4
       preserve: false
@@ -61,7 +61,7 @@ autoinstall:
       type: partition
       device: install-disk
       size: -1
-      wipe: superblock-recursive
+      wipe: superblock
       number: 5
       preserve: false
     
