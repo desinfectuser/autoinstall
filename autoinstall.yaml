@@ -17,7 +17,7 @@ autoinstall:
       match:
         size: largest
       ptable: gpt
-      wipe: superblock
+      wipe: zero
       preserve: false
       name: ''
       grub_device: true
@@ -27,7 +27,7 @@ autoinstall:
       device: install-disk
       size: 1048576
       offset: 1048576
-      wipe: superblock
+      wipe: superblock-recursive
       number: 1
       preserve: false
       flag: bios_grub
@@ -36,7 +36,7 @@ autoinstall:
       type: partition
       device: install-disk
       size: 1G
-      wipe: superblock
+      wipe: superblock-recursive
       number: 2
       preserve: false
     
@@ -44,7 +44,7 @@ autoinstall:
       type: partition
       device: install-disk
       size: 40G
-      wipe: superblock
+      wipe: superblock-recursive
       number: 3
       preserve: false
     
@@ -52,7 +52,7 @@ autoinstall:
       type: partition
       device: install-disk
       size: 10G
-      wipe: superblock
+      wipe: superblock-recursive
       flag: swap
       number: 4
       preserve: false
@@ -61,7 +61,7 @@ autoinstall:
       type: partition
       device: install-disk
       size: -1
-      wipe: superblock
+      wipe: superblock-recursive
       number: 5
       preserve: false
     
@@ -119,6 +119,10 @@ autoinstall:
     hostname: ubuntu-desktop-matu
     username: felix
     password: $6$cDc4q9xz5pivJi28$g1FG/WjKkvlUwWd4n7qMr50rskuIKAfHeYy63RxcMvo.oajtAodLktx8cb1DneEX44J0wOSXM6mLpndtdBoHx.
+  packages:
+    - htop
+    - tree
+    - vlc
   codecs:
     install: true
   drivers:
