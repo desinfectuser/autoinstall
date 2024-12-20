@@ -9,6 +9,7 @@ autoinstall:
     update: yes
   source:
     id: ubuntu-desktop
+    search_drivers: true
   storage:
     config:
     - id: install-disk
@@ -21,14 +22,15 @@ autoinstall:
       name: ''
       grub_device: true
     
-    - id: efi
+    - id: 
       type: partition
       device: install-disk
-      size: 600M
+      size: 1048576
+      offset: 1048576
       wipe: superblock-recursive
       number: 1
       preserve: false
-      flag: boot
+      flag: bios_grub
     
     - id: boot
       type: partition
@@ -63,14 +65,6 @@ autoinstall:
       number: 5
       preserve: false
     
-    
-    - id: efi_fs
-      type: format
-      volume: efi
-      fstype: vfat
-      label: efi
-      preserve: false
-    
     - id: boot_fs
       type: format
       volume: boot
@@ -97,12 +91,6 @@ autoinstall:
       fstype: ext4
       label: home
       preserve: false
-    
-    
-    - id: efi-mount
-      type: mount
-      device: efi_fs
-      path: /boot/efi
     
     - id: boot-mount
       type: mount
@@ -132,7 +120,7 @@ autoinstall:
     username: felix
     password: $6$cDc4q9xz5pivJi28$g1FG/WjKkvlUwWd4n7qMr50rskuIKAfHeYy63RxcMvo.oajtAodLktx8cb1DneEX44J0wOSXM6mLpndtdBoHx.
   codecs:
-    install: true
+    install: false
   drivers:
     install: true
   oem:
