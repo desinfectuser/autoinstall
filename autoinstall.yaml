@@ -120,7 +120,7 @@ autoinstall:
     username: felix
     password: $6$cDc4q9xz5pivJi28$g1FG/WjKkvlUwWd4n7qMr50rskuIKAfHeYy63RxcMvo.oajtAodLktx8cb1DneEX44J0wOSXM6mLpndtdBoHx.
   codecs:
-    install: false
+    install: true
   drivers:
     install: true
   oem:
