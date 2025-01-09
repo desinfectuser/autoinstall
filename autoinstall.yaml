@@ -1,5 +1,7 @@
 #cloud-config
 autoinstall:
+  interactive-sections:
+    - storage
   version: 1
   locale: en_GB.UTF-8
   keyboard:
