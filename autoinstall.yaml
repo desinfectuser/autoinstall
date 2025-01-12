@@ -1,7 +1,4 @@
 #cloud-config
-autoinstall:
-  interactive-sections:
-    - storage
   version: 1
   locale: en_GB.UTF-8
   keyboard:
@@ -125,6 +122,8 @@ autoinstall:
     - htop
     - tree
     - vlc
+    - zsh
+    - python3-netifaces
   codecs:
     install: true
   drivers:
@@ -141,4 +140,4 @@ autoinstall:
         groups: adm, lp, cdrom, sudo, dip, lpadmin, plugdev
         shell: /bin/bash
         lock_passwd: false
-        
+    
