@@ -16,7 +16,9 @@ if hostname == "":
 with open("/etc/hostname","w") as file:
     file.write(hostname)
 
-with open(hostname, "w") as outfile:
+filename = "/media/felix/STORAGE/" + hostname
+
+with open(filename, "w") as outfile:
     sys.stdout = outfile
     print(hostname)
     print("Mac-Adresse(n):")
@@ -24,7 +26,7 @@ with open(hostname, "w") as outfile:
         print(link, ":", netifaces.ifaddresses(link)[netifaces.AF_LINK])
 
 with open("/etc/default/grub", "w") as grubconf_alt:
-    with open("grub", "r") as grubconf_neu:
+    with open("/tmp/grub", "r") as grubconf_neu:
         grubconf_alt.write(grubconf_neu.read())
 
 os.system("update-grub")
