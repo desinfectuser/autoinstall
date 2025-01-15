@@ -118,19 +118,12 @@
     hostname: ubuntu-desktop-matu
     username: felix
     password: $6$cDc4q9xz5pivJi28$g1FG/WjKkvlUwWd4n7qMr50rskuIKAfHeYy63RxcMvo.oajtAodLktx8cb1DneEX44J0wOSXM6mLpndtdBoHx.
-  packages:
-    - htop
-    - tree
-    - vlc
-    - zsh
-    - python3-netifaces
   codecs:
     install: true
   drivers:
     install: true
   oem:
     install: true
-  updates: all
   shutdown: reboot
   timezone: Europe/Vienna
   user-data:
